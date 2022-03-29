@@ -1,0 +1,20 @@
+SELECT class_desc,*
+FROM sys.server_permissions
+WHERE grantor_principal_id = (
+SELECT principal_id
+FROM sys.server_principals
+WHERE NAME = N'DELTEKFIRST\JohnardHidalgo')
+
+
+REVOKE CONNECT ON ENDPOINT::[hadr_endpoint] TO [DELTEKFIRST\SQLSvrServiceAccount]
+GO
+
+
+SELECT p.name, e.* FROM sys.endpoints e
+
+inner join sys.server_principals p on e.principal_id = p.principal_id
+
+
+
+
+Alter Authorization on endpoint::Hadr_endpoint  to sa
