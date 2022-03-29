@@ -1,0 +1,8 @@
+--Primary
+select DB_NAME(database_id), log_send_queue_size from sys.dm_hadr_database_replica_states
+where log_send_queue_size > = 60
+order by log_send_queue_size desc
+
+
+--Secondary
+select DB_NAME(database_id), redo_queue_size from sys.dm_hadr_database_replica_states where redo_queue_size> = 60 order by redo_queue_size desc
