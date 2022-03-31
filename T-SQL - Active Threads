@@ -1,0 +1,10 @@
+select (select max_workers_count from sys.dm_os_sys_info) as 'total_threads',
+512 + (((select cpu_count from sys.dm_os_sys_info) - 4) * 16) as DefMaxWorkerZero,
+sum(active_Workers_count) as 'active_threads',(select max_workers_count from sys.dm_os_sys_info)-sum(active_Workers_count) as 'Availablethreads',sum(runnable_tasks_count) as 'WorkersWaitingfor_cpu',sum(work_queue_count) as 'Request_Waiting_for_threads' 
+from  sys.dm_os_Schedulers where status='VISIBLE ONLINE'
+
+
+--SELECT scheduler_id, cpu_id, status, is_online FROM sys.dm_os_schedulers 
+--GO
+
+select count(*) as 'Total CPU' from sys.dm_os_schedulers where status = 'VISIBLE ONLINE'
