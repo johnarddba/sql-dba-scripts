@@ -1,0 +1,25 @@
+--Check compatibility levels
+use master;
+set nocount on
+
+--get compatibility levels from existing databases
+select
+'database'       = upper(name)
+,           'compatibility'  = compatibility_level
+from
+sys.databases
+where
+database_id > 4
+order by
+name asc
+
+
+Change compatibility level to 130 
+--CHANGE COMPATIBILITY LEVELS TO 140 FOR ONLY THOSE DATABASES THAT ARE NOT SET TO 120
+DECLARE              @CHANGE_COMPATIBILITY_LEVEL  VARCHAR(MAX)
+SET                  @CHANGE_COMPATIBILITY_LEVEL  = ''
+SELECT               @CHANGE_COMPATIBILITY_LEVEL = @CHANGE_COMPATIBILITY_LEVEL +
+'ALTER DATABASE [' + NAME + '] SET COMPATIBILITY_LEVEL = 130;' + CHAR(10)
+FROM                SYS.DATABASES
+WHERE               DATABASE_ID > 4 AND COMPATIBILITY_LEVEL NOT IN ('130')
+EXEC                (@CHANGE_COMPATIBILITY_LEVEL)
