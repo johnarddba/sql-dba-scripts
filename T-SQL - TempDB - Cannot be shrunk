@@ -1,0 +1,43 @@
+File ID 11 of database ID 2 cannot be shrunk as it is either being shrunk by another process or is empty.
+DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+
+
+Workaround
+
+Increased the data file by a few MB and try to shrink again.
+
+use [tempdb]
+
+GO
+use [master]
+
+GO
+USE [master]
+GO
+ALTER DATABASE [tempdb] MODIFY FILE ( NAME = N'tempdev10', SIZE = 28863488KB )
+GO
+
+
+
+use [tempdb]
+GO
+--DBCC SHRINKFILE (N'tempdev8' , 30728)
+DBCC SHRINKFILE (N'tempdev10' , 1000,truncateonly)
+GO
+
+
+check
+
+
+SELECT 
+	percent_complete, 
+	start_time, 
+	status, 
+	command, 
+	estimated_completion_time, 
+	cpu_time, 
+	total_elapsed_time
+FROM 
+	sys.dm_exec_requests
+WHERE
+	command = 'DbccFilesCompact'
