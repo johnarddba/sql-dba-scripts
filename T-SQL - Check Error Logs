@@ -1,0 +1,9 @@
+use master
+go
+
+EXEC sp_readerrorlog
+
+--
+
+
+EXEC master.dbo.xp_readerrorlog 0, 1, N'backup', N'failed', NULL, NULL, N'desc'
