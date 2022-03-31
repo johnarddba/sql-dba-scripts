@@ -1,0 +1,60 @@
+--1st run
+
+USE [tempdb]
+GO
+DBCC DROPCLEANBUFFERS
+GO
+DBCC FREEPROCCACHE
+GO
+DBCC FREESYSTEMCACHE ('ALL')
+GO
+DBCC FREESESSIONCACHE
+GO 
+
+
+
+
+
+
+DBCC SHRINKFILE (tempdev8, EMPTYFILE)
+go
+
+--2nd run
+
+ALTER DATABASE [tempdb] REMOVE FILE [tempdev8] 
+
+--3rd run
+
+--re-create tempdb size to 20GB
+ALTER DATABASE tempdb ADD FILE (NAME = N'tempdev8', FILENAME = N'Z:\tempdev8.ndf', SIZE =20240MB, FILEGROWTH =128MB)
+GO
+
+------------------------------------------------------------
+
+USE [tempdb]
+GO
+DBCC SHRINKFILE (N'tempdev' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'templog' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev2' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev3' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev4' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev5' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev6' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev7' , 0, TRUNCATEONLY)
+GO
+DBCC SHRINKFILE (N'tempdev8' , 0, TRUNCATEONLY)
+GO
+
+
+USE [tempdb] DBCC SHRINKFILE ('tempdev12' , 10240)
+USE [tempdb] DBCC SHRINKFILE ('tempdev13' , 10240)
+USE [tempdb] DBCC SHRINKFILE ('tempdev14' , 10240)
+USE [tempdb] DBCC SHRINKFILE ('tempdev15' , 10240)
+USE [tempdb] DBCC SHRINKFILE ('tempdev16' , 10240)
