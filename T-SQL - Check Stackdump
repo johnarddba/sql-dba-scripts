@@ -1,0 +1,5 @@
+
+DBCC STACKDUMP
+--Outputs file of what is in stack.
+stackdump.sql
+Displaying stackdump.sql.
