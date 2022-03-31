@@ -1,0 +1,46 @@
+--Activity and SQL Statements
+
+select * from sys.dm_exec_requests
+select * from sys.dm_exec_connections
+select * from sys.dm_exec_query_stats
+select * from sys.dm_exec_function_stats
+select * from sys.dm_exec_procedure_stats
+select * from sys.dm_exec_cached_plans
+select * from sys.dm_exec_session_wait_stats
+select * from sys.dm_exec_sessions
+select * from sys.dm_exec_trigger_stats
+
+--Transactions
+
+select * from sys.dm_tran_locks
+select * from sys.dm_tran_session_transactions
+select * from sys.dm_db_index_usage_stats
+select * from sys.dm_db_index_operational_stats 
+select * from sys.dm_tran_database_transactions
+select * from sys.dm_tran_active_transactions
+
+--IO
+
+select * from sys.dm_io_virtual_file_stats
+select * from sys.dm_io_pending_io_requests
+select * from sys.dm_db_file_space_usage
+select * from sys.dm_db_log_space_usage
+
+--Performance and Waits
+
+select * from sys.dm_os_wait_stats
+select * from sys.dm_os_waiting_tasks
+select * from sys.dm_os_performance_counters
+select * from sys.dm_os_latch_stats
+select * from sys.dm_os_tasks
+select * from sys.dm_os_threads
+select * from sys.dm_os_sys_memory
+select * from sys.dm_os_process_memory
+select * from sys.dm_db_missing_index_details
+
+--Others daily useful DMVs
+
+select * from sys.dm_db_session_space_usage
+select * from sys.dm_db_task_space_usage
+select * from sys.dm_exec_query_memory_grants
+select * from sys.dm_exec_query_optimizer_info
