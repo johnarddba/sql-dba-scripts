@@ -4,3 +4,20 @@ SELECT RTRIM(hostname) AS hostname
 , SUBSTRING(convert(nvarchar(80),context_info), 20, 20) AS ExtendedConnectionDescriptionr
 FROM master.sys.sysprocesses
 where --program_name = '(Default)' 
+
+
+--New
+
+USE master;
+GO
+
+SELECT 
+spid
+, RTRIM(hostname) 'Host Name'
+, RTRIM(program_name) 'Program Name'
+, SUBSTRING(CONVERT(NVARCHAR(80),context_info),20,20) 'Login Name'
+FROM master.sys.sysprocesses
+ORDER BY hostname DESC
+GO
+
+
