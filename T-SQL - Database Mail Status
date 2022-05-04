@@ -1,0 +1,30 @@
+Stop the Queue
+Here’s how to stop the queue:
+
+EXECUTE msdb.dbo.sysmail_stop_sp;
+You can also use the sysmail_help_status_sp stored procedure to verify that the queue has been stopped.
+
+EXECUTE msdb.dbo.sysmail_help_status_sp;
+Result:
+
++----------+
+| Status   |
+|----------|
+| STOPPED  |
++----------+
+Start the Queue
+Here’s how to start the queue and check its status:
+
+EXECUTE msdb.dbo.sysmail_start_sp;
+EXECUTE msdb.dbo.sysmail_help_status_sp;
+Result:
+
++----------+
+| Status   |
+|----------|
+| STARTED  |
++----------+
+Location of the Stored Procedures
+Note that all stored procedures on this page are located in the msdb database, and they’re owned by the dbo schema.
+
+Therefore, you’ll need to use the three part naming if you execute them from outside the msdb database.
