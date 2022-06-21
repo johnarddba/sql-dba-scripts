@@ -9,3 +9,14 @@ ORDER BY ROUTINE_NAME;
 SELECT * 
   FROM DatabaseName.INFORMATION_SCHEMA.ROUTINES
  WHERE ROUTINE_TYPE = 'PROCEDURE'
+
+SELECT sys.sysobjects.name, sys.syscomments.text
+FROM sys.sysobjects INNER JOIN syscomments 
+ON sys.sysobjects.id = sys.syscomments.id
+WHERE sys.syscomments.text LIKE '%belin@hedgeserv.com%' 
+--AND sys.sysobjects.type = 'P'
+ORDER BY sys.sysobjects.NAME
+
+
+
+
