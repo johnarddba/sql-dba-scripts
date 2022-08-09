@@ -1,0 +1,6 @@
+SELECT name,
+CASE [db_failover]
+WHEN 0 THEN 'Disabled'
+ELSE 'Enabled'
+END 'Database level health detection'
+FROM sys.availability_groups
