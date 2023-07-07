@@ -1,0 +1,7 @@
+SELECT * FROM sys.sysprocesses 
+WHERE blocked > 0 
+  OR SPID IN (SELECT Blocked FROM sys.sysprocesses);
+
+
+
+DBCC OPENTRAN();
