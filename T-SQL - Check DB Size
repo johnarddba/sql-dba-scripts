@@ -1,0 +1,6 @@
+SELECT
+    DB_NAME(database_id) AS 'Database',
+    SUM(size * 8 / 1024.0) AS 'Size_in_MB'
+FROM sys.master_files
+WHERE type = 0 -- Data files
+GROUP BY database_id;
