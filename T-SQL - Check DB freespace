@@ -7,3 +7,17 @@ FROM
     information_schema.tables
 GROUP BY
     table_schema;
+
+
+
+SELECT 
+    DB_NAME() AS DatabaseName,
+    (CAST(SUM(size) AS FLOAT) * 8 / 1024) AS TotalSize_MB,
+    (CAST(SUM(size) AS FLOAT) * 8 / 1024) - (CAST(FILEPROPERTY(name, 'SpaceUsed') AS FLOAT) * 8 / 1024) AS FreeSpace_MB,
+    ((CAST(FILEPROPERTY(name, 'SpaceUsed') AS FLOAT) * 8 / 1024) / (CAST(SUM(size) AS FLOAT) * 8 / 1024)) * 100 AS FreeSpacePercentage
+FROM 
+    sys.master_files
+WHERE 
+    type = 0 -- 0 = Data File, 1 = Log File
+GROUP BY 
+    DB_NAME(), type_desc;
