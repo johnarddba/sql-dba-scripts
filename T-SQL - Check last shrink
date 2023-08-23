@@ -1,0 +1,28 @@
+DECLARE @traceID INT
+DECLARE @maxFileSize INT
+DECLARE @fileName NVARCHAR(260)
+
+-- Find the current trace file
+SELECT @traceID = id
+FROM sys.traces
+WHERE is_default = 1
+
+-- Get the maximum file size for the trace
+SELECT @maxFileSize = max_size
+FROM sys.traces
+WHERE id = @traceID
+
+-- Get the current trace file name
+SELECT @fileName = SUBSTRING(path, 1, LEN(path) - CHARINDEX('\', REVERSE(path))) + '\log.trc'
+FROM sys.traces
+WHERE id = @traceID
+
+-- Query the default trace for shrink events
+SELECT
+    TE.name AS EventName,
+    T.DatabaseName,
+    T.StartTime
+FROM sys.fn_trace_gettable(@fileName, @maxFileSize) T
+INNER JOIN sys.trace_events TE ON T.EventClass = TE.trace_event_id
+WHERE TE.name LIKE 'Data File Auto Shrink'
+ORDER BY T.StartTime DESC
