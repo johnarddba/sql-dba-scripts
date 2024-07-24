@@ -1,0 +1,22 @@
+USE master
+GO
+
+ALTER DATABASE TestDB SET OFFLINE
+
+
+--move physical database
+
+
+USE master
+GO
+
+ALTER DATABASE TestDB 
+MODIFY FILE (NAME = TestDB, FILENAME = 'C:\MSSQL\UserDBData\TestDB.mdf')
+
+ALTER DATABASE TestDB 
+MODIFY FILE (NAME = TestDB_log, FILENAME = 'C:\MSSQL\UserDBLog\TestDB_log.ldf')
+
+USE master
+GO
+
+ALTER DATABASE TestDB SET ONLINE
