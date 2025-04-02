@@ -1,0 +1,20 @@
+WITH DeadlockDetails AS
+(
+    SELECT
+        XEvent.value('(event/data[@name="timestamp"]/value)[1]', 'datetime') AS DeadlockTime,
+        XEvent.query('(event/data[@name="xml_report"]/value)[1]') AS DeadlockGraph
+    FROM (
+        SELECT CAST(target_data AS XML) AS TargetData
+        FROM sys.dm_xe_session_targets AS st
+        INNER JOIN sys.dm_xe_sessions AS s
+            ON st.event_session_address = s.address
+        WHERE s.name = 'system_health'
+          AND st.target_name = 'ring_buffer'
+    ) AS Data
+    CROSS APPLY TargetData.nodes('//RingBufferTarget/event[@name="xml_deadlock_report"]') AS XEventData(XEvent)
+)
+SELECT
+    DeadlockTime,
+    DeadlockGraph
+FROM DeadlockDetails
+ORDER BY DeadlockTime DESC;
