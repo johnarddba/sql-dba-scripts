@@ -19,4 +19,15 @@ ORDER BY sys.sysobjects.NAME
 
 
 
-
+SELECT 
+	(ss.name + '.' + sp.name) AS [Stored Procedure]
+	--,ss.name AS [Schema]
+	--,sp.name AS [Stored Procedure]
+    ,sp.type_desc AS [Type]
+    ,sp.create_date AS [Created]
+	,sp.modify_date  AS [Last Modified]
+	,OBJECT_DEFINITION(sp.object_id) AS [Definition]
+FROM sys.procedures sp
+INNER JOIN sys.schemas ss
+	ON sp.schema_id = ss.schema_id
+ORDER BY ss.name, sp.name
