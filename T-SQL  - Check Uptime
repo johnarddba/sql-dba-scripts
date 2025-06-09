@@ -18,3 +18,18 @@ ELSE BEGIN
 PRINT 'SQL Server and SQL Server Agent both are running'
 END
 PRINT 'Last checked ' + CONVERT(VARCHAR(50),Getdate())
+
+--CHeck SQL Server Instance Uptime
+-- This query retrieves the SQL Server instance uptime by checking the login time of the system process with SPID 1.
+use master
+go
+SELECT @@SERVERNAME AS [Server Name], login_time as [SQL Server Instance Uptime] FROM sys.sysprocesses where spid=1;
+
+
+use master
+go
+SELECT @@SERVERNAME AS [Server Name]
+, login_time as [SQL Server Instance Uptime]
+, DATEDIFF(HOUR, login_time, GETDATE()) AS [Uptime Hours]
+, DATEDIFF(MINUTE, login_time, GETDATE()) % 60 AS [Uptime Minutes]
+FROM sys.sysprocesses where spid=1;
