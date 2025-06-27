@@ -1,0 +1,1 @@
+# Sends alert emails (used with monitoring)
