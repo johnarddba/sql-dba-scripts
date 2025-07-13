@@ -14,5 +14,7 @@ FROM msdb.dbo.restorehistory rh
  INNER JOIN msdb.dbo.backupset bs ON rh.backup_set_id = bs.backup_set_id
  INNER JOIN msdb.dbo.restorefile rf ON rh.restore_history_id = rf.restore_history_id
  INNER JOIN msdb.dbo.backupmediafamily bmf ON bmf.media_set_id = bs.media_set_id
+
+ --WHERE destination_database_name = 'AuditPROD'
 ORDER BY rh.restore_history_id DESC
 GO
