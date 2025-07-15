@@ -5,3 +5,6 @@ Critical days will be on December 28 and 29 as we are both OFF. I will try to ge
 
 Here’s our planned schedule in December 2025 to January 2026. Johnard and I agreed to this schedule. We’ll just communicate in advance if there will be any changes or any adjustment. 
 Meanwhile, I will be travelling to USA on 6th of December (nighttime) until 14th of January. I will send a separate email for this to get approval from you and Isa as part of the requirement from HR. 
+
+
+Hey guys, good morning/afternoon… kind reminder that we need to monitor the failover alerts closely in order to avoid any instances running on the secondary… today will prepare scripts to check if all DBs are on their primary and probably alerts if not … let me know if you have any questions
