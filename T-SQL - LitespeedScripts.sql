@@ -101,17 +101,17 @@ EXEC master.dbo.xp_restore_log
 GO
 
 
-/**** Script to do restore split backup ****/
+/**** Script to do restore split backup  HS WAY ****/
 
- exec master.dbo.xp_restore_database @database = N'hshiluxprod9000' ,
-@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_hshiluxprod9000_part0.LBK',
-@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_hshiluxprod9000_part1.LBK',
-@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_hshiluxprod9000_part2.LBK',
-@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_hshiluxprod9000_part3.LBK',
-@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_hshiluxprod9000_part4.LBK',
+ exec master.dbo.xp_restore_database @database = N'database01' ,
+@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_database01_part0.LBK',
+@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_database01_part1.LBK',
+@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_database01_part2.LBK',
+@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_database01_part3.LBK',
+@filename = N'E:\Backup\wk_7_Monday_202502101841_Full_database01_part4.LBK',
 @filenumber = 1,
 @with = N'STATS = 10',
-@with = N'STANDBY = N''E:\DBBackup\PROD\UNDO\hshiluxprod9000_undo.TUF''',
+@with = N'STANDBY = N''E:\DBBackup\PROD\UNDO\database01_undo.TUF''',
 @affinity = 0,
 @logging = 0
  

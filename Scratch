@@ -8,3 +8,15 @@ Meanwhile, I will be travelling to USA on 6th of December (nighttime) until 14th
 
 
 Hey guys, good morning/afternoon… kind reminder that we need to monitor the failover alerts closely in order to avoid any instances running on the secondary… today will prepare scripts to check if all DBs are on their primary and probably alerts if not … let me know if you have any questions
+
+
+Johnard, Madel please check the DBs and AGs- I checked them, but it would be better to have a second set of eyes
+ 
+Primary nodes should be:
+ 
+
+ 
+just a basic check- if AGs are running primaries on the correct nodes and secondaries are synchronized 
+ 
+thank you
+ 
