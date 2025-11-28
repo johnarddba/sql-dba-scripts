@@ -135,3 +135,14 @@ Employees at this level reliably and consistently meet all the expectations, sta
 Career Management is your ability to develop the necessary skills to excel at your current level. You seek feedback on a regular basis to measure your success. You advocate for new opportunities for growth and development. You have the capacity to tune into your own feelings, sense inner signals, and recognize how your feelings affect you and your performance. Your goal at each level is to achieve expertise, preparing you for the next step in your journey.
 
 Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
+
+
+Leadership consist of the two competencies:
+
+
+
+Change Management is your ability to implement change within internal and external processes. This includes preparing and supporting employees, establishing the necessary steps for change, and monitoring pre- and post-change activities to ensure successful implementation. Change management is also your ability to adapt and respond to the changing environment and priorities, shifting focus when issues need to be addressed.
+
+
+
+Inspiration is your ability to inspire others' commitment to their work and organizational excellence. You display emotional intelligence through your ability to assess and manage your own emotions and recognize and influence the emotions of those around you. You are empathetic and use this to guide and motivate your team. You organize, prioritize, and delegate work. You maintain a “no door” policy and resolve issues quickly and efficiently. You seek guidance from others when necessary. You help others see the personal benefits of doing their job well and encourage them to do their best. You look for new, creative ways to motivate others. You acknowledge achievements and contributions. You maintain and communicate a positive, yet realistic outlook, in spite of organizational challenges in order to sustain morale. You recognize and tackle morale problems by using a variety of approaches to energize and inspire others.
