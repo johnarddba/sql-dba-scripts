@@ -106,3 +106,32 @@ I took ownership in guiding development and QA teams on performance best practic
 I made decisions based on risk assessment, balancing urgent operational needs with long-term database health. I also acted proactively by identifying potential issues—such as capacity trends, blocking patterns, or failing jobs—before they affected operations.
 Moving forward, I’m ready to take on larger responsibilities such as leading database initiatives, coordinating performance improvement programs, mentoring junior team members, and supporting architectural decisions around cloud, HA/DR, and scalability. My goal is to contribute at a higher strategic level while still delivering strong technical value.
 
+====
+Client & Stakeholder Focus is your ability to put your clients’ and/or stakeholders’ needs in the forefront, providing them with a true bespoke approach that HedgeServ is known for. You are proactive in anticipating and solving their problems. You seek ways to improve processes and anticipate challenges. You proactively communicate and build trusting relationships with them.
+
+Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
+
+===
+Critical Thinking is your ability to obtain, interpret, and use knowledge, facts, and data to understand a problem or issue. You find and present solutions to issues that arise. You think outside the box.
+
+Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
+
+===
+Managing Resources is your ability to understand the human, financial, and operational resources required to make decisions to build and plan efficient project workflows and improve overall organizational performance. You think ahead and plan for future needs. You assess individual and team strengths.  Managing Resources is also your ability to plan your day accordingly to ensure all tasks are completed on time and accurately. It requires you to make good decisions when prioritizing your workload.
+
+Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
+
+===
+Professionalism is your ability to perform regular work assignments and understand all relevant internal/external products and services in the financial industry. You keep current with industry changes and seek learning and development opportunities. You share your knowledge with others.  You act responsibly and with integrity, keeping the interests of the larger community in mind; you learn from your mistakes.
+
+Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
+
+===
+Teamwork is your ability to work within a team structure to achieve a shared goal. It is your ability to use your skills to work with people from diverse backgrounds and groups while seeking ways to collaborate and cooperate. Providing constructive feedback is an important part of teamwork as is knowing when to lead and when to follow. You actively listen and ask questions for clarification to ensure a complete understanding of an issue or a goal. You are successful in negotiating and managing conflict. You actively participate.
+
+Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
+
+===
+Career Management is your ability to develop the necessary skills to excel at your current level. You seek feedback on a regular basis to measure your success. You advocate for new opportunities for growth and development. You have the capacity to tune into your own feelings, sense inner signals, and recognize how your feelings affect you and your performance. Your goal at each level is to achieve expertise, preparing you for the next step in your journey.
+
+Employees at this level reliably and consistently meet all the expectations, standards, requirements, and objectives of their position. They demonstrate HedgeServ values and are willing and able to grow for their personal and organizational development. At this level, performance meets expectations regarding quality of work, efficiency, timeliness, and completing the most critical goals.
