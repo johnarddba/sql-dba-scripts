@@ -1,0 +1,29 @@
+-- Script to bring all user databases out of Standby/Read-Only mode
+-- This targets databases that are currently in 'STANDBY' (Standby/Read-Only) state.
+-- For databases in pure READ_ONLY (not standby), it sets them to READ_WRITE.
+-- For log shipping or similar standby secondaries, it first sets to READ_WRITE (which recovers the database),
+-- making it fully online and writable.
+-- WARNING: Recovering from standby is irreversible without a new backup/restore setup.
+-- Run in the master database.
+
+USE master;
+GO
+
+DECLARE @sql NVARCHAR(MAX) = N'';
+
+SELECT @sql += N'ALTER DATABASE ' + QUOTENAME(name) + N' SET READ_WRITE WITH NO_WAIT;' + CHAR(13) + CHAR(10)
+FROM sys.databases
+WHERE database_id > 4  -- Exclude system databases
+  AND (is_read_only = 1 OR state_desc = 'STANDBY')  -- Target read-only or standby
+  AND state = 0;  -- Ensure the database is ONLINE (standby databases are ONLINE but read-only)
+
+IF @sql <> N''
+BEGIN
+    PRINT 'Executing the following commands:' + CHAR(13) + CHAR(10) + @sql;
+    EXEC sp_executesql @sql;
+END
+ELSE
+BEGIN
+    PRINT 'No user databases found in Standby/Read-Only mode.';
+END
+GO
