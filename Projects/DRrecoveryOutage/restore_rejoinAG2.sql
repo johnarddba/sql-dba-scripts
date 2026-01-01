@@ -2,7 +2,7 @@ USE master;
 GO
 
 DECLARE @BackupFolder NVARCHAR(255) = 'C:\Backups\Stripe5\';
-DECLARE @Suffix NVARCHAR(64) = ''; 
+DECLARE @Suffix NVARCHAR(64) = ''; -- e.g., '_2025-01-01'
 DECLARE @DB NVARCHAR(128);
 DECLARE @DefaultAG NVARCHAR(128);
 DECLARE @CurrentAG NVARCHAR(128);
@@ -51,7 +51,7 @@ BEGIN
 
     BEGIN TRY
         SET @CurrentAG = NULL;
-        SET @TargetAG = @DefaultAG; -- Default target is the default AG
+        SET @TargetAG = @DefaultAG; 
 
         -- A. Determine Current AG for this specific database
         SELECT @CurrentAG = ag.name
@@ -59,7 +59,7 @@ BEGIN
         JOIN sys.availability_groups ag ON adc.group_id = ag.group_id
         WHERE adc.database_name = @DB;
 
-        -- If DB is in an AG, remove it from THAT AG and set target to rejoin SAME AG
+        -- If DB is in an AG, remove it from THAT AG
         IF @CurrentAG IS NOT NULL
         BEGIN
             PRINT ' - Database is in Availability Group: ' + @CurrentAG;
@@ -80,7 +80,7 @@ BEGIN
              WHERE ag.name = @TargetAG AND rs.is_local = 1;
         END
 
-        -- B. Set Single User
+        -- B. Set Single User to kill connections
         IF EXISTS(SELECT 1 FROM sys.databases WHERE name = @DB)
         BEGIN
             PRINT ' - Setting SINGLE_USER...';
@@ -88,7 +88,9 @@ BEGIN
             EXEC(@SQL);
         END
 
-        -- C. Restore from LiteSpeed Striped Backup
+        -- C. Restore from LiteSpeed Striped Backup (1-5)
+        -- Assuming "split from 0-5 files" means 5 files or similar. 
+        -- Standardizing on stripe1..stripe5 based on previous context.
         SET @F1 = @BackupFolder + @DB + @Suffix + '_stripe1.bak';
         SET @F2 = @BackupFolder + @DB + @Suffix + '_stripe2.bak';
         SET @F3 = @BackupFolder + @DB + @Suffix + '_stripe3.bak';
