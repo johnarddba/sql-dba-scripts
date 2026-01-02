@@ -1,7 +1,7 @@
 USE master;
 GO
 
-DECLARE @BackupFolder NVARCHAR(255) = N'\\tshd53fsxot0001.hedgeservtest.com\rnd_db_tlogs\DR_Sync\';
+DECLARE @BackupFolder NVARCHAR(255) = N'E\Backups\DR_Recovery\';
 DECLARE @DB NVARCHAR(128);
 DECLARE @DefaultAG NVARCHAR(128);
 DECLARE @CurrentAG NVARCHAR(128);
