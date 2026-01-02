@@ -1,0 +1,30 @@
+--AG Role Checker
+
+DECLARE @DefaultAG SYSNAME;
+DECLARE @IsPrimary BIT = 0;
+
+--Check for first AG
+
+SELECT  TOP 1 @DefaultAG = name FROM sys.availability_groups
+
+IF @DefaultAG IS NULL
+	BEGIN
+		PRINT 'No AG Found'
+	END
+ELSE
+	BEGIN
+		--Check if the current server is in primary
+		SELECT @IsPrimary = CASE WHEN rs.role = 1 THEN 1 ELSE 0 END
+		FROM sys.dm_hadr_availability_replica_states rs
+		JOIN sys.availability_groups ag
+		ON rs.group_id = ag.group_id
+		WHERE rs.is_local = 1 and ag.name = @DefaultAG
+	
+		PRINT 'Availability Group: ' + @DefaultAG;
+
+		IF @IsPrimary = 1
+			PRINT 'This server is primary'
+		ELSE
+			PRINT 'This server is secondary'
+	
+	END
