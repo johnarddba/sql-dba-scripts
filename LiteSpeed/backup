@@ -1,0 +1,37 @@
+USE master;
+GO
+DECLARE @BackupFolder NVARCHAR(255) = 'C:\Backups\Stripe5\';
+DECLARE @ServerTag NVARCHAR(128) = @@SERVERNAME;
+DECLARE @Suffix NVARCHAR(64) = CONVERT(NVARCHAR(8), GETDATE(), 112) + REPLACE(CONVERT(NVARCHAR(8), GETDATE(), 108), ':', '');
+DECLARE @DB NVARCHAR(128);
+DECLARE @F1 NVARCHAR(MAX);
+DECLARE @F2 NVARCHAR(MAX);
+DECLARE @F3 NVARCHAR(MAX);
+DECLARE @F4 NVARCHAR(MAX);
+DECLARE @F5 NVARCHAR(MAX);
+IF OBJECT_ID('tempdb..#UserDBs') IS NOT NULL DROP TABLE #UserDBs;
+CREATE TABLE #UserDBs (DBName NVARCHAR(128));
+INSERT INTO #UserDBs (DBName)
+SELECT name FROM sys.databases WHERE database_id > 4 AND state_desc = 'ONLINE';
+WHILE EXISTS(SELECT 1 FROM #UserDBs)
+BEGIN
+    SELECT TOP 1 @DB = DBName FROM #UserDBs;
+    SET @F1 = @BackupFolder + @DB + '_' + @ServerTag + '_' + @Suffix + '_stripe1.bak';
+    SET @F2 = @BackupFolder + @DB + '_' + @ServerTag + '_' + @Suffix + '_stripe2.bak';
+    SET @F3 = @BackupFolder + @DB + '_' + @ServerTag + '_' + @Suffix + '_stripe3.bak';
+    SET @F4 = @BackupFolder + @DB + '_' + @ServerTag + '_' + @Suffix + '_stripe4.bak';
+    SET @F5 = @BackupFolder + @DB + '_' + @ServerTag + '_' + @Suffix + '_stripe5.bak';
+    EXEC master.dbo.xp_backup_database
+        @database = @DB,
+        @filename = @F1,
+        @filename = @F2,
+        @filename = @F3,
+        @filename = @F4,
+        @filename = @F5,
+        @compressionlevel = 2,
+        @init = 1,
+        @with = 'STATS=10';
+    DELETE FROM #UserDBs WHERE DBName = @DB;
+END
+IF OBJECT_ID('tempdb..#UserDBs') IS NOT NULL DROP TABLE #UserDBs;
+GO
