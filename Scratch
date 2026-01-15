@@ -71,3 +71,19 @@ At the time, my understanding was that coverage arrangements were managed, as no
 
 Yours sincerely,
 Johnard Hidalgo
+
+
+
+
+Here’s the Timeline of the project
+
+Dec 14 – 27 – Building cluster in rnd, prod and dr
+Dec 27 – Jan 3
+January 3, I submitted the script
+January 6, Mike created a Bring data back from DR for updates
+January 7, Make revision to use vanya’s stored procedure
+January 8, Vamsi message me to gave him the script
+January 9, Vamsi and I had a call and review the 1st script and agreed to revise some parts
+January 13, I message Vamsi to review again the script
+January 14, Vamsi said the script looks fine
+January 15, Im finalizing the restore script today and will send anytime soon
