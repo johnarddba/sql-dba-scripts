@@ -75,3 +75,24 @@ At line:1 char:1344
     + FullyQualifiedErrorId : MissingMandatoryParameter,Microsoft.PowerShell.Commands.WaitJobCommand
  
 NULL
+
+
+N'powershell -NoProfile -ExecutionPolicy Bypass -Command "' +
+N'$primary = ''' + REPLACE(@primaryBase,'''','''''') + N'''; ' +
+N'$secondary = ''' + REPLACE(@secondaryBase,'''','''''') + N'''; ' +
+N'$pat1 = ''' + REPLACE(@Pattern1,'''','''''') + N'''; ' +
+N'$pat2 = ''' + REPLACE(@Pattern2,'''','''''') + N'''; ' +
+N'$sb = { param($server,$pat1,$pat2) ' +
+N'$cn = New-Object System.Data.SqlClient.SqlConnection(\"Server=$server;Integrated Security=true;\"); ' +
+N'$cn.Open(); ' +
+N'$cmd = New-Object System.Data.SqlClient.SqlCommand(\"SELECT name FROM msdb.dbo.sysjobs WHERE name LIKE @p1 OR name LIKE @p2\", $cn); ' +
+N'($cmd.Parameters.Add(\"@p1\", [System.Data.SqlDbType]::VarChar, 256)).Value = $pat1; ' +
+N'($cmd.Parameters.Add(\"@p2\", [System.Data.SqlDbType]::VarChar, 256)).Value = $pat2; ' +
+N'$r = $cmd.ExecuteReader(); $jobs = @(); while ($r.Read()) { $jobs += $r.GetString(0) } $r.Close(); ' +
+N'foreach ($j in $jobs) { ' +
+N'$u = New-Object System.Data.SqlClient.SqlCommand(\"EXEC msdb.dbo.sp_update_job @job_name=@n, @enabled=1\", $cn); ($u.Parameters.Add(\"@n\", [System.Data.SqlDbType]::VarChar, 128)).Value = $j; $u.ExecuteNonQuery() | Out-Null; ' +
+N'$s = New-Object System.Data.SqlClient.SqlCommand(\"EXEC msdb.dbo.sp_start_job @job_name=@n\", $cn); ($s.Parameters.Add(\"@n\", [System.Data.SqlDbType]::VarChar, 128)).Value = $j; $s.ExecuteNonQuery() | Out-Null; ' +
+N'Write-Host (\"Enabled and started: \" + $server + \" : \" + $j) } $cn.Close(); }; ' +
+N'$j1 = Start-Job -ScriptBlock $sb -ArgumentList $primary,$pat1,$pat2; ' +
+N'$j2 = Start-Job -ScriptBlock $sb -ArgumentList $secondary,$pat1,$pat2; ' +
+N'Wait-Job -Id $j1.Id,$j2.Id | Receive-Job"';
