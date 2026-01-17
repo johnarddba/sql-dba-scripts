@@ -1,0 +1,16 @@
+At line:1 char:316
++ ... b_name = '''daily_TRAN_LOG_Backup_hsolyrnd5160''', @enabled = 1', $Sq ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unexpected token 'daily_TRAN_LOG_Backup_hsolyrnd5160''', @enabled = 1'' in expression or statement.
+At line:1 char:316
++ ... lient.SqlCommand('EXEC msdb.dbo.sp_update_job @job_name = '''daily_TR ...
++                                                                  ~
+Missing closing ')' in expression.
+At line:1 char:384
++ ... AN_LOG_Backup_hsolyrnd5160''', @enabled = 1', $SqlConnection);  $SqlC ...
++                                                                 ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+ 
+NULL
