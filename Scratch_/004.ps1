@@ -64,3 +64,14 @@ N'Write-Host (\"Enabled and started: \" + $server + \" : \" + $j) } $cn.Close();
 N'Start-Job -ScriptBlock $sb -ArgumentList $primary,$pat1,$pat2 | Out-Null; ' +
 N'Start-Job -ScriptBlock $sb -ArgumentList $secondary,$pat1,$pat2 | Out-Null; ' +
 N'Wait-Job | Receive-Job"';
+
+
+
+Wait-Job : Cannot process command because of one or more missing mandatory parameters: Id.
+At line:1 char:1344
++ ... $sb -ArgumentList $secondary,$pat1,$pat2 | Out-Null; Wait-Job | Recei ...
++                                                          ~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Wait-Job], ParameterBindingException
+    + FullyQualifiedErrorId : MissingMandatoryParameter,Microsoft.PowerShell.Commands.WaitJobCommand
+ 
+NULL
