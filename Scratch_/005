@@ -1,0 +1,85 @@
+Hello,
+
+Can you please answer to below questions:
+
+•	Did you log to the server to check its resource utilization, especially IO load?
+•	Did you check the server sessions and currently running statements?  
+•	Did you check the AGs state and sync, 
+•	Did you check the instance state in foglight or AWS monitoring? 
+•	Did you check the Foglight alerts for long running lock? There were 3 alerts between 1:15 and 2:06. Did you acknowledge them?
+
+ 
+
+
+
+From: Johnard Hidalgo <jhidalgo@hedgeserv.com> 
+Sent: 16 January 2026 19:33
+To: Vanya Belcheva <vbelcheva@hedgeserv.com>
+Cc: Michael Neyrus <mneyrus@hedgeserv.com>
+Subject: RE: ENGG checklist query overload issue - Jan 16th 
+
+Hi Vanya,
+
+Following my response after returning from my break, I performed an initial health check. I reviewed Foglight for any blocking activity and server. At that time no blocking and servers appears to be working normally.
+
+after providing this update, I did not receive any follow-up questions, request for deeper investigation or indication that the issue was ongoing or escalating. I therefore resumed working on my assigned project while continuing to monitor the team chat and ticket queue.
+
+As soon as I saw the chat at 3:00 our time, I responded immediately. However, they were already coordinating with another DBA, and I did not receive any private message or call while I was online at that time.
+
+Thank you for your understanding.
+
+Regards,
+Johnard A. Hidalgo | HEDGESERV | Tel: +63 917 1403064 | jhidalgo@hedgeserv.com 
+
+
+From: Vanya Belcheva <vbelcheva@hedgeserv.com> 
+Sent: Friday, January 16, 2026 10:51 PM
+To: Johnard Hidalgo <jhidalgo@hedgeserv.com>
+Cc: Michael Neyrus <mneyrus@hedgeserv.com>
+Subject: ENGG checklist query overload issue - Jan 16th 
+
+Hello Johnard,
+
+Can you please help us understand your involvement in the ENGG checklist query overload issue on Jan 16th. 
+
+The issue started at aprx. 21:55 and was resolved at aprx. 3:40. During this time there were clear indications that there is long running query and the server is under high IO load and even the backup job took almost twice the expected time (see screenshots below). 
+
+At aprx. 23:54 App support engineer contacted DBA team to check if there is any issue with ENG. At this point the offending query was running for aprx. 2 hous and there were clear indications that there is something happening. 
+
+At 00:22 you responded that there is no blocking and the servers seems fine.
+
+
+ 
+
+Based on the DBA team chat you were away till 00:22 and you responded in the same minute that that “the server seems fine”.
+
+ 
+
+Can you please let us know the checks you run to conclude that “the server seems fine” and provide us with detailed step by step investigation of the issue. Did you log to the server to check its utilization, resource utilization, currently running statements, did you check the AGs state and sync, the instance state in foglight or AWS monitoring? Did you check the Foglight alerts for long running lock?
+
+ 
+
+
+At 1:08 the issue was escalated to ICA 
+
+ 
+
+The member of App Support said “We checked with DBA earlier and they reported no issues”
+
+ 
+At 2:00  member of App Support team(Dobrin) and Director of DEV (Yordan) requested DBA team support again and called Ognyan for second opinion and he called me and we resolved the issue in aprx. one and half hours. 
+
+ 
+
+Screenshots1:
+
+
+ 
+
+
+
+ 
+ 
+
+
+
