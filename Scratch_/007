@@ -1,0 +1,19 @@
+•	log to the server to check its resource utilization (task Manager, resource monitor), SQL services status, cluster resources status, cluster manager error log and event viewer in case of Failover Cluster / AlwaysOn issues – 
+
+Server resources checked. CPU and memory were normal; elevated I/O latency was observed during  the requested time frame
+	
+•	log to the instance and check the AGs state and synchronization status in AG dashboard 
+
+AG is Healthy	
+
+•	check SQL Server error log for any errors or deadlock reports
+
+•	log to the server to check its resource utilization (task Manager, resource monitor), SQL services status, cluster resources status, cluster manager error log and event viewer in case of Failover Cluster / AlwaysOn issues – 
+
+Server resources checked. CPU and memory were normal; elevated I/O latency was observed during  the requested time frame
+	
+•	log to the instance and check the AGs state and synchronization status in AG dashboard 
+
+AG is Healthy	
+
+•	check SQL Server error log for any errors or deadlock reports
