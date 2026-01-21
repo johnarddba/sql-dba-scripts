@@ -8,12 +8,21 @@ AG is Healthy
 
 •	check SQL Server error log for any errors or deadlock reports
 
-•	log to the server to check its resource utilization (task Manager, resource monitor), SQL services status, cluster resources status, cluster manager error log and event viewer in case of Failover Cluster / AlwaysOn issues – 
+No related issues found
 
-Server resources checked. CPU and memory were normal; elevated I/O latency was observed during  the requested time frame
-	
-•	log to the instance and check the AGs state and synchronization status in AG dashboard 
+•	check the server sessions and currently running statements, long running transactions, foglight alerts for long running locks
+•	check mail box for any related alerts or teams for notifications from other teams 
 
-AG is Healthy	
+Checked all alerts related to ENGG server not found
 
-•	check SQL Server error log for any errors or deadlock reports
+•	check the instance state in foglight or AWS monitoring for current or recent load and utilization 
+
+Checked and verified all working
+
+•	foglight blocking report 
+
+No locking or blocking found
+
+•	foglight SQL PI for historical data on the performance of the server
+
+Elevated I/O found during the incident window. Madel will provide more details.
