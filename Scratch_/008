@@ -1,0 +1,1 @@
+it should not be that complex. you just get max values on the largest clients on all the int columns and subtract that from max values allowed for integer. the difference is what you still have. then estimate percentage of that vs total rows in that table. is you less then 20 percent then we should probably increase. 
