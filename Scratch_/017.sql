@@ -131,3 +131,10 @@ SELECT
     is_max_type
 FROM @Results
 ORDER BY schema_name, table_name, column_name;
+
+test
+
+--Msg 9829, Level 16, State 1, Line 41
+--STRING_AGG aggregation result exceeded the limit of 8000 bytes. Use LOB types to avoid result truncation.
+--Msg 9829, Level 16, State 1, Line 76
+--STRING_AGG aggregation result exceeded the limit of 8000 bytes. Use LOB types to avoid result truncation.
