@@ -1,0 +1,2 @@
+Msg 8623, Level 16, State 1, Line 2
+The query processor ran out of internal resources and could not produce a query plan. This is a rare event and only expected for extremely complex queries or queries that reference a very large number of tables or partitions. Please simplify the query. If you believe you have received this message in error, contact Customer Support Services for more information.
