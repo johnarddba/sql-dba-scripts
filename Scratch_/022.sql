@@ -1,7 +1,5 @@
 WITH rowcounts AS (
-  SELECT
-    p.object_id,
-    SUM(p.row_count) AS row_count
+  SELECT p.object_id, SUM(p.row_count) AS row_count
   FROM sys.dm_db_partition_stats p
   WHERE p.index_id IN (0,1)
   GROUP BY p.object_id
@@ -29,12 +27,13 @@ scored AS (
     rc.row_count AS TotalRows,
     i.CurrentIdentityValue,
     (i.IntMaxValue - i.CurrentIdentityValue) AS RemainingValues,
-    CAST((i.IntMaxValue - i.CurrentIdentityValue) * 100.0 / NULLIF(rc.row_count, 0) AS decimal(12,2)) AS RemainingPctVsRows,
-    CASE
-      WHEN CAST((i.IntMaxValue - i.CurrentIdentityValue) * 100.0 / NULLIF(rc.row_count, 0) AS decimal(12,2)) < 20
-        THEN 'INCREASE (consider BIGINT)'
-      ELSE 'OK'
-    END AS Recommendation
+    CAST(
+      CASE WHEN rc.row_count IS NULL OR rc.row_count = 0
+           THEN NULL
+           ELSE ( (i.IntMaxValue - i.CurrentIdentityValue) * 100.0 ) / rc.row_count
+      END
+      AS decimal(38,6)
+    ) AS RemainingPctVsRows
   FROM ident i
   LEFT JOIN rowcounts rc ON rc.object_id = i.object_id
 ),
@@ -54,7 +53,11 @@ SELECT TOP (10)
   CurrentIdentityValue,
   RemainingValues,
   RemainingPctVsRows,
-  Recommendation
+  CASE
+    WHEN RemainingPctVsRows IS NOT NULL AND RemainingPctVsRows < 20
+      THEN 'INCREASE (consider BIGINT)'
+    ELSE 'OK'
+  END AS Recommendation
 FROM perTableWorst
 WHERE rn = 1
 ORDER BY RemainingPctVsRows ASC, RemainingValues ASC;
