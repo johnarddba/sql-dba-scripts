@@ -1,0 +1,55 @@
+USE master;
+GO
+
+
+DECLARE
+	@DBName NVARCHAR(128) = N'test'
+
+IF EXISTS (SELECT  1 FROM sys.databases WHERE name = @DBName)
+BEGIN
+	PRINT 'Database is attached and existing on the server,';
+END
+ELSE
+BEGIN
+	PRINT 'Database is NOT attached to the server';
+END
+
+GO
+
+DECLARE
+	@mdfPath nvarchar(512) = 'D:\DATA\test.mdf',
+	@ldfPath nvarchar(512) = 'E:\LOG\test_log.ldf',
+	@mdfExists int,
+	@ldfExists int
+
+EXEC master..xp_fileexist @mdfpath, @mdfExists OUTPUT;
+IF @mdfExists = 1
+	PRINT 'MDF file exists on the disk,';
+ELSE
+	PRINT 'MDF file does not exist on the disk'
+
+EXEC master..xp_fileexist @ldfpath, @ldfExists OUTPUT;
+IF @ldfExists = 1
+	PRINT 'MDF file exists on the disk,';
+ELSE
+	PRINT 'MDF file does not exist on the disk'
+
+
+--sp_helpdb test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
