@@ -1,0 +1,13 @@
+---
+- name: Create SQL Server Database
+  hosts: windows
+  tasks:
+
+    - name: Copy SQL file
+    win_copy:
+      src: create_db.SQL
+      dest: C:Temp\create_db.SQL
+    
+    - name: Execute Sql Script
+      winshell: |
+        sqlcmd -S localhost -E -i C:\Temp\create_db.sql
