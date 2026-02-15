@@ -1,12 +1,14 @@
 ---
 - name: Create SQL Server Database
   hosts: windows
+  gather_facts: no
+
   tasks:
 
     - name: Copy SQL file
-    win_copy:
-      src: create_db.SQL
-      dest: C:Temp\create_db.SQL
+      win_copy:
+        src: create_db.SQL
+        dest: C:Temp\create_db.SQL
     
     - name: Execute Sql Script
       winshell: |
