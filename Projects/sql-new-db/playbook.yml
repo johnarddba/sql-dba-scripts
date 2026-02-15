@@ -8,8 +8,8 @@
     - name: Copy SQL file
       win_copy:
         src: create_db.SQL
-        dest: C:Temp\create_db.SQL
+        dest: "C:\\Temp\\create_db.sql"
     
     - name: Execute Sql Script
-      winshell: |
+      win_shell: |
         sqlcmd -S localhost -E -i C:\Temp\create_db.sql
