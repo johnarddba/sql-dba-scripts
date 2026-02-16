@@ -1,6 +1,5 @@
 --SQL Script: Check AG Lag and Potential Data Loss
 
-
 SELECT 
     ar.replica_server_name, 
     adc.database_name, 
