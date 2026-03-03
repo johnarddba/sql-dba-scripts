@@ -1,0 +1,18 @@
+import json
+
+def lambda_handler(event, context):
+    
+    emoji = event.get("emoji_type")
+
+    if emoji == 0:
+        feeling = "positive"
+    elif emoji == 1:
+        feeling = "neutral"
+    else:
+        feeling = "negative"
+
+    return {
+        "emoji_type": emoji,
+        "message": event.get("message"),
+        "feeling": feeling
+    }
