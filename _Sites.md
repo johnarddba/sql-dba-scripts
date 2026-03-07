@@ -39,3 +39,10 @@ https://grow.google/certificates/data-analytics/
 --Ansible
 https://www.youtube.com/watch?v=lVcvY4Wy6_8&list=PL2qzCKTbjutIyQAe3GglWISLnLTQLGm7e&index=17
 
+
+
+--Microsoft Database Troubleshooting 
+
+https://github.com/MicrosoftDocs/SupportArticles-docs/tree/main/support/sql/database-engine
+
+

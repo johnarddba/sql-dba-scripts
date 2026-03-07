@@ -1,0 +1,2 @@
+Last January 20, I have asked for your assistance to review and approve my Pull Requests as part of building my RND servers. Also, during the day, I asked some questions regarding some errors I’ve encountered running the build. I was advised that on your daily report that day, it is recorded that you assisted me for 4 hours. I was asked to confirm if this is a continues effort or spread throughout the day. I included the PR below for reference. Thank you so much for the help and please let me know if you have any questions.
+
