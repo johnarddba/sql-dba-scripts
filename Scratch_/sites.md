@@ -12,5 +12,9 @@ www.credly.com/badges/1ad4724a-e0ae-4cbf-9e3e-4a01ee595eae/accept
 
 https://github.com/MicrosoftDocs/learn/blob/main/azure/architecture
 
+UDEMY - AWS CSAA
+
+https://courses.datacumulus.com/downloads/certified-solutions-architect-pn9/
+
 
 
