@@ -1,17 +1,17 @@
-Stop the Queue
-Here’s how to stop the queue:
+--Stop the Queue
+--Here’s how to stop the queue:
 
 EXECUTE msdb.dbo.sysmail_stop_sp;
-You can also use the sysmail_help_status_sp stored procedure to verify that the queue has been stopped.
+--You can also use the sysmail_help_status_sp stored procedure to verify that the queue has been stopped.
 
 EXECUTE msdb.dbo.sysmail_help_status_sp;
-Result:
+--Result:
 
-+----------+
-| Status   |
-|----------|
-| STOPPED  |
-+----------+
+--+----------+
+--| Status   |
+--|----------|
+--| STOPPED  |
+--+----------+
 Start the Queue
 Here’s how to start the queue and check its status:
 
