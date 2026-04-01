@@ -1,0 +1,12 @@
+- hosts: sqlserver
+  tasks:
+
+  - name: Install SQL sqlserver
+    win_package:
+      path: https://go.microsoft.com/fwlink/?linkid=
+      product_id: SQLServer
+      arguments: /qs
+
+  - name: Create Database
+    win_shell: |
+      sqlcmd -Q "CREATE DATABASE TerraformDB"
