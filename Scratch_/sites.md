@@ -18,3 +18,6 @@ https://courses.datacumulus.com/downloads/certified-solutions-architect-pn9/
 
 
 
+https://github.com/in28minutes/course-material/blob/main/02-aws-certified-solution-architect-associate/AWSCertification-SolutionArchitectAssociate-Presentation.pdf
+
+
