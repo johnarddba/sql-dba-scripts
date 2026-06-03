@@ -1,0 +1,1 @@
+EXEC xp_logininfo 'DOMAIN\GroupName', 'members'
